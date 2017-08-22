@@ -65,7 +65,11 @@ document.onkeyup = function(event) {
 
     }
 
+//IF correct, edit the DOM
 
+    //ELSE
+    // subract the number of guesses
+    //and edit the dom with the letters already placed
 }
 
  // if (correctLetter) {
