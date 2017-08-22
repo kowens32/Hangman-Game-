@@ -27,16 +27,17 @@ document.onkeyup = function(event) {
 }
 //If user selects the same str.indexof as the computer than replace with a letter
     //Else capture letter below
-
-
+var lionChoices = ["l", "i", "o", "n"]
+   if (userChoices !== -1) and (userChoices < res.length)
+        userChoices[res]=event.key;
 
 
 //If user selects a choice that does not equal res.length than detract from guessesLeft
 if (validChoices.indexOf(userChoices) > res.length) {
     guessesLeft--;
-
-    var computerGuessSpan = document.getElementById("incorect");
-    computerGuessSpan.innerHTML = userChoices;
+//then capture below
+    var incorrectUserChoice = document.getElementById("incorrect");
+    incorrectUserChoice.innerHTML = userChoices;
 }
 
 
