@@ -50,7 +50,7 @@ document.onkeyup = function(event) {
     }
     if (correctLetter) {
         console.log("correct letter");
-        for (i=0; i < computerAnimalSplit.length; i++) {
+        for (i = 0; i < computerAnimalSplit.length; i++) {
 
             if (computerAnimalSplit[i] === userChoices) {
                 dashesAndCorrectGuesses[i] = userChoices;
