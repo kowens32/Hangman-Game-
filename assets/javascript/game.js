@@ -11,6 +11,7 @@ var computerAnimalSplit = computerAnimal.split("");
 console.log(computerAnimal);
 var userChoices='';
 var correctLetter = false;
+var dashesAndCorrectGuesses=[];
 
 //user selects a key to get started
 document.onkeyup = function(event) {
@@ -20,7 +21,7 @@ document.onkeyup = function(event) {
    // var computerAnimalSplit = computerAnimal.split("");
     var correctWord = computerAnimalSplit.length;
     console.log("correct word "+correctWord);
-    var dashesAndCorrectGuesses = [];
+    //var dashesAndCorrectGuesses = [];
     for (i = 0; i < computerAnimalSplit.length; i++) {
         dashesAndCorrectGuesses.push("_");
     }
@@ -31,13 +32,12 @@ document.onkeyup = function(event) {
 
     console.log(computerAnimal);
   //  console.log(correctLetter);
-//Computer has selected a Lion  and splits the string into individual characters
 
-    // var computerAnimalSplit = computerAnimal.split("");
     var validChoices = ("computerAnimalSplit");
     console.log("event function " +computerAnimalSplit);
 
     console.log("event function user choice " +userChoices);
+   //Checking to see if letter chosen matches a character in the array
     var correctLetter = false;
     for (i=0; i < computerAnimalSplit.length; i++) {
         if (computerAnimalSplit[i] === userChoices) {
@@ -48,9 +48,37 @@ document.onkeyup = function(event) {
         }
         console.log("for loop correct " + correctLetter);
     }
+    if (correctLetter) {
+        console.log("correct letter");
+        for (i=0; i < computerAnimalSplit.length; i++) {
+
+            if (computerAnimalSplit[i] === userChoices) {
+                dashesAndCorrectGuesses[i] = userChoices;
+                //console.log("line 57 " + userChoices);
+                //console.log("line 58" + dashesAndCorrectGuesses[i]);
+                console.log("my arrary " + dashesAndCorrectGuesses);
+
+
+            }
+
+        }
+
+    }
 
 
 }
+
+ // if (correctLetter) {
+ //     for (i=0; i < computerAnimalSplit.length; i++) {
+ //      if (computerAnimalSplit[i] === correctLetter) {
+ //          dashesAndCorrectGuesses[i] = correctLetter;
+ //
+ //      }
+ //     }
+ // }
+
+
+
 
 
 
