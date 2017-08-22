@@ -5,3 +5,7 @@ body {
 .col{
     border: solid pink;
 }
+
+#currentWord {
+    font-size: xx-large;
+}
