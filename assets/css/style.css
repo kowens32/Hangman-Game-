@@ -1,6 +1,9 @@
 body {
     color: white;
     background-image:url("../images/zebras-322092_1920.jpg") ;
+    font-family: 'Slabo 27px', serif;
+    text-align: center;
+
 
 
 
@@ -9,8 +12,6 @@ body {
 .col{
     border: solid pink 5px;
     height: 75px;
-    font-family: 'Slabo 60px', serif;
-    text-align: center;
 
 }
 
