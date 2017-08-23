@@ -66,28 +66,30 @@ document.onkeyup = function(event) {
         }
 
     } else {
+
+       if(incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices);
+        document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
+
         guessesLeft--;
         document.getElementById("guessesLeft").innerHTML = guessesLeft;
         //textContent = userChoices;
         console.log(guessesLeft);
 
-       if(incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices);
 
-        document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
         //textContent = userChoices;
         console.log("new " + incorrectLetters);
 
     }
 
-//Prevent users from selecting same key twice
-    for (i = 0; i < incorrectLetters.length; i++) {
-        if (incorrectLetters[i] === userChoices); {
-           // alert("You've already picked this letter!");
-
-        }
-
-
-}
+// //Prevent users from selecting same key twice
+//     for (i = 0; i < incorrectLetters.length; i++) {
+//         if (incorrectLetters[i] === userChoices); {
+//            // alert("You've already picked this letter!");
+//
+//         }
+//
+//
+// }
 }
 
 

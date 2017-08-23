@@ -1,5 +1,5 @@
 body {
-    background-color: gainsboro;
+    background-image:url("../images/zebras-322092_1920.jpg") ;
 }
 
 .col{
@@ -9,3 +9,4 @@ body {
 #currentWord {
     font-size: xx-large;
 }
+
