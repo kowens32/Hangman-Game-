@@ -1,13 +1,17 @@
 body {
     color: white;
     background-image:url("../images/zebras-322092_1920.jpg") ;
-    font-family: 'Slabo 100px', serif;
+
 
 
 }
 
 .col{
-    border: solid pink;
+    border: solid pink 5px;
+    height: 75px;
+    font-family: 'Slabo 60px', serif;
+    text-align: center;
+
 }
 
 #currentWord {

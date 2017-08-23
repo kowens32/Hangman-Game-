@@ -12,6 +12,7 @@ console.log(computerAnimal);
 var userChoices='';
 var correctLetter = false;
 var dashesAndCorrectGuesses=[];
+var userwin = 0;
 for (i = 0; i < computerAnimalSplit.length; i++) {
     dashesAndCorrectGuesses.push("_");
 }
@@ -58,7 +59,7 @@ document.onkeyup = function(event) {
                 //console.log("line 57 " + userChoices);
                 //console.log("line 58" + dashesAndCorrectGuesses[i]);
                 console.log("my arrary " + dashesAndCorrectGuesses);
-              //  document.getElementById("correctWord");
+                //  document.getElementById("correctWord");
                 //textContent = userChoices;
             }
 
@@ -67,19 +68,30 @@ document.onkeyup = function(event) {
 
     } else {
 
-       if(incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices);
+        if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices);
+
         document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
 
-        guessesLeft--;
+
         document.getElementById("guessesLeft").innerHTML = guessesLeft;
         //textContent = userChoices;
         console.log(guessesLeft);
-
+        guessesLeft--;
 
         //textContent = userChoices;
         console.log("new " + incorrectLetters);
 
     }
+
+
+    if (dashesAndCorrectGuesses === computerAnimalSplit) {
+        console.log("did i win " + userwin);
+        userwin++;
+
+
+    }
+}
+
 
 // //Prevent users from selecting same key twice
 //     for (i = 0; i < incorrectLetters.length; i++) {
@@ -90,7 +102,7 @@ document.onkeyup = function(event) {
 //
 //
 // }
-}
+
 
 
 
