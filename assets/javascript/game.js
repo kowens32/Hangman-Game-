@@ -5,41 +5,42 @@
 var safariAnimals = ["lion", "elephant", "giraffe", "leopard", "rhino", "flamingo", "wildebeest", "buffalo", "hippopotamus", "cheetah",];
 var guessesLeft = 15;
 //var correctWord = ("_")*computerAnimalSplit.length;
-
+var incorrectLetters = [];
 var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
 var computerAnimalSplit = computerAnimal.split("");
 console.log(computerAnimal);
 var userChoices='';
 var correctLetter = false;
 var dashesAndCorrectGuesses=[];
-
+for (i = 0; i < computerAnimalSplit.length; i++) {
+    dashesAndCorrectGuesses.push("_");
+}
 //user selects a key to get started
 document.onkeyup = function(event) {
     var userChoices = event.key;
 //computer randomly selects an animal
 //     var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
-   // var computerAnimalSplit = computerAnimal.split("");
+    // var computerAnimalSplit = computerAnimal.split("");
     var correctWord = computerAnimalSplit.length;
-    console.log("correct word "+correctWord);
+    console.log("correct word " + correctWord);
     //var dashesAndCorrectGuesses = [];
-    for (i = 0; i < computerAnimalSplit.length; i++) {
-        dashesAndCorrectGuesses.push("_");
-    }
-    console.log("dashes " +dashesAndCorrectGuesses);
+    // for (i = 0; i < computerAnimalSplit.length; i++) {
+    //     dashesAndCorrectGuesses.push("_");
+    // }
+    console.log("dashes " + dashesAndCorrectGuesses);
     document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
 
 
-
     console.log(computerAnimal);
-  //  console.log(correctLetter);
+    //  console.log(correctLetter);
 
     var validChoices = ("computerAnimalSplit");
-    console.log("event function " +computerAnimalSplit);
+    console.log("event function " + computerAnimalSplit);
 
-    console.log("event function user choice " +userChoices);
-   //Checking to see if letter chosen matches a character in the array
+    console.log("event function user choice " + userChoices);
+    //Checking to see if letter chosen matches a character in the array
     var correctLetter = false;
-    for (i=0; i < computerAnimalSplit.length; i++) {
+    for (i = 0; i < computerAnimalSplit.length; i++) {
         if (computerAnimalSplit[i] === userChoices) {
             correctLetter = true;
             console.log("for loop " + userChoices);
@@ -57,19 +58,35 @@ document.onkeyup = function(event) {
                 //console.log("line 57 " + userChoices);
                 //console.log("line 58" + dashesAndCorrectGuesses[i]);
                 console.log("my arrary " + dashesAndCorrectGuesses);
+              //  document.getElementById("correctWord");
+                //textContent = userChoices;
             }
-            document.getElementById("correctWord");
-            textContent = userChoices;
+
+
         }
 
+    } else {
+        guessesLeft--;
+        document.getElementById("guessesLeft").innerHTML = guessesLeft;
+        //textContent = userChoices;
+        console.log(guessesLeft);
+
+        incorrectLetters.push(userChoices);
+
+        document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
+        //textContent = userChoices;
+        console.log("new " + incorrectLetters);
+
     }
+
+}
 
 //IF correct, edit the DOM
 
     //ELSE
     // subract the number of guesses
     //and edit the dom with the letters already placed
-}
+
 
  // if (correctLetter) {
  //     for (i=0; i < computerAnimalSplit.length; i++) {
