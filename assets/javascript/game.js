@@ -57,10 +57,9 @@ document.onkeyup = function(event) {
                 //console.log("line 57 " + userChoices);
                 //console.log("line 58" + dashesAndCorrectGuesses[i]);
                 console.log("my arrary " + dashesAndCorrectGuesses);
-
-
             }
-
+            document.getElementById("correctWord");
+            textContent = userChoices;
         }
 
     }
