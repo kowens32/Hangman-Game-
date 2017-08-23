@@ -71,7 +71,7 @@ document.onkeyup = function(event) {
         //textContent = userChoices;
         console.log(guessesLeft);
 
-        incorrectLetters.push(userChoices);
+       if(incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices);
 
         document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
         //textContent = userChoices;
@@ -79,7 +79,19 @@ document.onkeyup = function(event) {
 
     }
 
+//Prevent users from selecting same key twice
+    for (i = 0; i < incorrectLetters.length; i++) {
+        if (incorrectLetters[i] === userChoices); {
+           // alert("You've already picked this letter!");
+
+        }
+
+
 }
+}
+
+
+
 
 //IF correct, edit the DOM
 
