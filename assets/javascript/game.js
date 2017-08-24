@@ -44,29 +44,30 @@ document.onkeyup = function(event) {
     for (i = 0; i < computerAnimalSplit.length; i++) {
         if (computerAnimalSplit[i] === userChoices) {
             correctLetter = true;
+            dashesAndCorrectGuesses[i] = userChoices;
             console.log("for loop " + userChoices);
             console.log("for loop split " + computerAnimalSplit[i])
             //console.log("for loop correct " + correctLetter);
         }
         console.log("for loop correct " + correctLetter);
     }
-    if (correctLetter) {
-        console.log("correct letter");
-        for (i = 0; i < computerAnimalSplit.length; i++) {
+    if (!correctLetter) {
+       // console.log("correct letter");
+        // for (i = 0; i < computerAnimalSplit.length; i++) {
+        //
+        //     if (computerAnimalSplit[i] === userChoices) {
+        //         dashesAndCorrectGuesses[i] = userChoices;
+        //         //console.log("line 57 " + userChoices);
+        //         //console.log("line 58" + dashesAndCorrectGuesses[i]);
+        //         console.log("my arrary " + dashesAndCorrectGuesses);
+        //         //  document.getElementById("correctWord");
+        //         //textContent = userChoices;
+        //     }
+        //
+        //
+        // }
 
-            if (computerAnimalSplit[i] === userChoices) {
-                dashesAndCorrectGuesses[i] = userChoices;
-                //console.log("line 57 " + userChoices);
-                //console.log("line 58" + dashesAndCorrectGuesses[i]);
-                console.log("my arrary " + dashesAndCorrectGuesses);
-                //  document.getElementById("correctWord");
-                //textContent = userChoices;
-            }
-
-
-        }
-
-    } else {
+  // } else {
 
         if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices) && guessesLeft--;
         {
@@ -77,12 +78,21 @@ document.onkeyup = function(event) {
             console.log("how many  " + guessesLeft);
 
         }
-    }
+   // }
+
+        if (computerAnimalSplit = dashesAndCorrectGuesses) userwin++; {
+
+            document.getElementById("userWin").innerHTML =userwin;
+
+            console.log ("did i win " +userwin);
+
+
+        }}
 
 
 
 
-    }
+}
 
 
 
