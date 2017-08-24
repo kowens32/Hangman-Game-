@@ -39,6 +39,7 @@ document.onkeyup = function(event) {
     console.log("event function " + computerAnimalSplit);
 
     console.log("event function user choice " + userChoices);
+
     //Checking to see if letter chosen matches a character in the array
     var correctLetter = false;
     for (i = 0; i < computerAnimalSplit.length; i++) {
@@ -51,6 +52,8 @@ document.onkeyup = function(event) {
         }
         console.log("for loop correct " + correctLetter);
     }
+
+
     if (!correctLetter) {
         // console.log("correct letter");
         // for (i = 0; i < computerAnimalSplit.length; i++) {
@@ -68,21 +71,25 @@ document.onkeyup = function(event) {
         // }
 
         // } else {
-
+//if user choice is not in the incorrect letters array, push into array and detract one guess
         if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices) && guessesLeft--;
         {
 
             document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
 
             document.getElementById("guessesLeft").innerHTML = guessesLeft;
-            console.log("how many  " + guessesLeft);
+           // console.log("how many  " + guessesLeft);
 
         }
 
-
-
+        if (dashesAndCorrectGuesses[i] != 0) userwin++;
+        console.log("what is this "+userwin);
+        document.getElementById("userWin").innerHTML = userwin;
     }
+
+
 }
+
 
 
 
