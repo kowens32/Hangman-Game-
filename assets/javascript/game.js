@@ -72,9 +72,9 @@ document.onkeyup = function(event) {
 
         document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
 
-
         document.getElementById("guessesLeft").innerHTML = guessesLeft;
-        //textContent = userChoices;
+       // textContent = userChoices;
+
         console.log(guessesLeft);
         guessesLeft--;
 
