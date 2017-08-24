@@ -6,13 +6,16 @@ var safariAnimals = ["lion", "elephant", "giraffe", "leopard", "rhino", "flaming
 var guessesLeft = 15;
 //var correctWord = ("_")*computerAnimalSplit.length;
 var incorrectLetters = [];
+//computer randomly generates an animal name
 var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
+//computer splits the name of the animal into individual characters
 var computerAnimalSplit = computerAnimal.split("");
 console.log(computerAnimal);
 var userChoices='';
 var correctLetter = false;
 var dashesAndCorrectGuesses=[];
 var userwin = 0;
+//create a new array
 for (i = 0; i < computerAnimalSplit.length; i++) {
     dashesAndCorrectGuesses.push("_");
 }
@@ -29,6 +32,7 @@ document.onkeyup = function(event) {
     //     dashesAndCorrectGuesses.push("_");
     // }
     console.log("dashes " + dashesAndCorrectGuesses);
+    //Takes the current randomly generated word and turns it into dashes
     document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
 
 
@@ -78,13 +82,13 @@ document.onkeyup = function(event) {
             document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
 
             document.getElementById("guessesLeft").innerHTML = guessesLeft;
-           // console.log("how many  " + guessesLeft);
+            // console.log("how many  " + guessesLeft);
 
         }
 
-        if (dashesAndCorrectGuesses[i] != 0) userwin++;
         console.log("what is this "+userwin);
         document.getElementById("userWin").innerHTML = userwin;
+
     }
 
 
@@ -112,19 +116,19 @@ document.onkeyup = function(event) {
 
 //IF correct, edit the DOM
 
-    //ELSE
-    // subract the number of guesses
-    //and edit the dom with the letters already placed
+//ELSE
+// subract the number of guesses
+//and edit the dom with the letters already placed
 
 
- // if (correctLetter) {
- //     for (i=0; i < computerAnimalSplit.length; i++) {
- //      if (computerAnimalSplit[i] === correctLetter) {
- //          dashesAndCorrectGuesses[i] = correctLetter;
- //
- //      }
- //     }
- // }
+// if (correctLetter) {
+//     for (i=0; i < computerAnimalSplit.length; i++) {
+//      if (computerAnimalSplit[i] === correctLetter) {
+//          dashesAndCorrectGuesses[i] = correctLetter;
+//
+//      }
+//     }
+// }
 
 
 
