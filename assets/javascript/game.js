@@ -52,7 +52,7 @@ document.onkeyup = function(event) {
         console.log("for loop correct " + correctLetter);
     }
     if (!correctLetter) {
-       // console.log("correct letter");
+        // console.log("correct letter");
         // for (i = 0; i < computerAnimalSplit.length; i++) {
         //
         //     if (computerAnimalSplit[i] === userChoices) {
@@ -67,7 +67,7 @@ document.onkeyup = function(event) {
         //
         // }
 
-  // } else {
+        // } else {
 
         if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices) && guessesLeft--;
         {
@@ -78,21 +78,14 @@ document.onkeyup = function(event) {
             console.log("how many  " + guessesLeft);
 
         }
-   // }
-
-        if (computerAnimalSplit = dashesAndCorrectGuesses) userwin++; {
-
-            document.getElementById("userWin").innerHTML =userwin;
-
-            console.log ("did i win " +userwin);
-
-
-        }}
 
 
 
-
+    }
 }
+
+
+
 
 
 
