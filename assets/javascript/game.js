@@ -68,29 +68,22 @@ document.onkeyup = function(event) {
 
     } else {
 
-        if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices);
+        if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices) && guessesLeft--;
+        {
 
-        document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
+            document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
 
-        document.getElementById("guessesLeft").innerHTML = guessesLeft;
-       // textContent = userChoices;
+            document.getElementById("guessesLeft").innerHTML = guessesLeft;
+            console.log("how many  " + guessesLeft);
 
-        console.log(guessesLeft);
-        guessesLeft--;
-
-        //textContent = userChoices;
-        console.log("new " + incorrectLetters);
-
+        }
     }
 
 
-    if (dashesAndCorrectGuesses === computerAnimalSplit) {
-        console.log("did i win " + userwin);
-        userwin++;
 
 
     }
-}
+
 
 
 // //Prevent users from selecting same key twice
