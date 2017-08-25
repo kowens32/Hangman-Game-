@@ -14,23 +14,43 @@ var safariAnimals = ["lion", "elephant", "giraffe", "leopard", "rhino", "flaming
 //var correctWord = ("_")*computerAnimalSplit.length;
 var incorrectLetters = [];
 //computer randomly generates an animal name
- var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
+// var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
 //computer splits the name of the animal into individual characters
-var computerAnimalSplit = computerAnimal.split("");
-console.log(computerAnimal);
+//var computerAnimalSplit = computerAnimal.split("");
+//console.log(computerAnimal);
 var correctLetter = false;
 var dashesAndCorrectGuesses=[];
 var userwin = 0;
-var dashes = "_";
+var computerAnimalSplit=[];
+//var dashes = "_";
 //create a new array
-for (i = 0; i < computerAnimalSplit.length; i++) {
-    dashesAndCorrectGuesses.push("_");
-}
+// for (i = 0; i < computerAnimalSplit.length; i++) {
+//     dashesAndCorrectGuesses.push("_");
+// }
 
 
 function newGame() {
     var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
     var guessesLeft = 16;
+    var incorrectLetters = [];
+//computer randomly generates an animal name
+   // var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
+//computer splits the name of the animal into individual characters
+    var computerAnimalSplit = computerAnimal.split("");
+    console.log(computerAnimal);
+    console.log("comp animal split "+computerAnimalSplit);
+    var correctLetter = false;
+    var dashesAndCorrectGuesses=[];
+    //var userwin = 0;
+//create a new array
+    for (i = 0; i < computerAnimalSplit.length; i++) {
+        dashesAndCorrectGuesses.push("_");
+    }
+    document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
+
+console.log(computerAnimalSplit.length);
 
 }
 
@@ -56,7 +76,7 @@ newGame();
         document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
 
 
-        console.log(computerAnimal);
+      //  console.log(computerAnimal);
         //  console.log(correctLetter);
 
         var validChoices = ("computerAnimalSplit");
@@ -115,6 +135,7 @@ newGame();
                 document.getElementById("incorrect").innerHTML = "";
                 // getElementById("your-form-id").reset();
                 console.log("do i have words " + dashesAndCorrectGuesses);
+                newGame();
 
             }
 
