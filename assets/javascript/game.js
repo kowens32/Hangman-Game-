@@ -1,128 +1,86 @@
 
 
-
-
-///target user choice so that it equals computeranimal
-//computeranimal[i]=userchoice
-
-/////https://www.w3schools.com/Jsref/jsref_includes.asp
-
-//no
-//List of possible animals to spell
+///Set variables to be used throughout the game
 var safariAnimals = ["lion", "elephant", "giraffe", "leopard", "rhino", "flamingo", "wildebeest", "buffalo", "hippopotamus", "cheetah",];
- var guessesLeft = 16;
-//var correctWord = ("_")*computerAnimalSplit.length;
-var incorrectLetters = [];
-//computer randomly generates an animal name
- var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
-//computer splits the name of the animal into individual characters
-var computerAnimalSplit = computerAnimal.split("");
-console.log(computerAnimal);
 var correctLetter = false;
-var dashesAndCorrectGuesses=[];
 var userwin = 0;
-var dashes = "_";
-//create a new array
-for (i = 0; i < computerAnimalSplit.length; i++) {
-    dashesAndCorrectGuesses.push("_");
-}
+var computerAnimalSplit=[];
+var dashesAndCorrectGuesses=[];
+var incorrectLetters = [];
+
+
 
 
 function newGame() {
-    var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
-    var guessesLeft = 16;
+    /////Assign null value to all variables
+    computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
+    guessesLeft = 15;
+    incorrectLetters = [];
+    correctLetter = false;
+    dashesAndCorrectGuesses=[];
+    //breaks computer selected animal into characters
+    computerAnimalSplit = computerAnimal.split("");
+    //Creates dashes from letters in computerAnimalSplit into a new array
+    for (i = 0; i < computerAnimalSplit.length; i++) {
+        dashesAndCorrectGuesses.push("_");
+    }
+    //writes the arrays to the DOM
+    document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
 
 }
-
 
 newGame();
 
 //user selects a key to get started
-    document.onkeyup = function (event) {
+document.onkeyup = function (event) {
+    var userChoices = event.key;
 
-        /////////Start the function here??????\\\\\\
-        var userChoices = event.key;
-//computer randomly selects an animal
-//     var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
-        // var computerAnimalSplit = computerAnimal.split("");
-        var correctWord = computerAnimalSplit.length;
-        console.log("correct word " + correctWord);
-        //var dashesAndCorrectGuesses = [];
-        // for (i = 0; i < computerAnimalSplit.length; i++) {
-        //     dashesAndCorrectGuesses.push("_");
-        // }
-        console.log("dashes " + dashesAndCorrectGuesses);
-        //Takes the current randomly generated word and turns it into dashes
-        document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
+//checks to see if user has chosen the correct letter
+    var correctLetter = false;
+    for (i = 0; i < computerAnimalSplit.length; i++) {
+        if (computerAnimalSplit[i] === userChoices) {
+            correctLetter = true;
+            dashesAndCorrectGuesses[i] = userChoices;
+            //if user has selected correct choice, push letter to correct position in array
+            document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
+        }
+    }
 
-
-        console.log(computerAnimal);
-        //  console.log(correctLetter);
-
-        var validChoices = ("computerAnimalSplit");
-        console.log("event function " + computerAnimalSplit);
-
-        // console.log("event function user choice " + userChoices);
-
-        //Checking to see if letter chosen matches a character in the array
-        var correctLetter = false;
-        for (i = 0; i < computerAnimalSplit.length; i++) {
-            if (computerAnimalSplit[i] === userChoices) {
-                correctLetter = true;
-                dashesAndCorrectGuesses[i] = userChoices;
-                document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
-                // console.log("for loop " + userChoices);
-                //console.log("for loop split " + computerAnimalSplit[i])
-                //console.log("for loop correct " + correctLetter);
-            }
-            //  console.log("for loop correct " + correctLetter);
+    //If userchoice is not correct
+    if (!correctLetter) {
+//check if userchoice is not already within array, the subtract one from guesses left
+        if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices) && guessesLeft--;
+        {
+            document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
+            document.getElementById("guessesLeft").innerHTML = guessesLeft;
         }
 
-
-        if (!correctLetter) {
-            // console.log("correct letter");
-            // for (i = 0; i < computerAnimalSplit.length; i++) {
-            //
-            //     if (computerAnimalSplit[i] === userChoices) {
-            //         dashesAndCorrectGuesses[i] = userChoices;
-            //         //console.log("line 57 " + userChoices);
-            //         //console.log("line 58" + dashesAndCorrectGuesses[i]);
-            //         console.log("my arrary " + dashesAndCorrectGuesses);
-            //         //  document.getElementById("correctWord");
-            //         //textContent = userChoices;
-            //     }
-            //
-            //
-            // }
-
-            // } else {
-//if user choice is not in the incorrect letters array, push into array and detract one guess
-            if (incorrectLetters.indexOf(userChoices) < 0) incorrectLetters.push(userChoices) && guessesLeft--;
-            {
-
-                document.getElementById("incorrect").innerHTML = incorrectLetters.join(" ");
-
-                document.getElementById("guessesLeft").innerHTML = guessesLeft;
-                // console.log("how many  " + guessesLeft);
-
-            }
-            if (dashesAndCorrectGuesses.toString() === computerAnimalSplit.toString()) {
-                userwin++;
-                alert("You won!");
-                document.getElementById("userWin").innerHTML = userwin;
-                document.getElementById("currentWord").innerHTML = "";
-                document.getElementById("guessesLeft").innerHTML = "";
-                document.getElementById("incorrect").innerHTML = "";
-                // getElementById("your-form-id").reset();
-                console.log("do i have words " + dashesAndCorrectGuesses);
-
-            }
-
+        //Reset game if user uses all guesses
+        if (guessesLeft === 0) {
+            alert("Game over!");
+            newGame();
+        }
+//user has won if user has filled the array with the same values as the computer choice
+        if (dashesAndCorrectGuesses.toString() === computerAnimalSplit.toString()){
+            //and one to user win and alert user
+            userwin++;
+            alert("You won!");
+            document.getElementById("userWin").innerHTML = userwin;
+            document.getElementById("currentWord").innerHTML = "";
+            document.getElementById("guessesLeft").innerHTML = "";
+            document.getElementById("incorrect").innerHTML = "";
+            console.log("do i have words " + dashesAndCorrectGuesses);
+            //reset game
+            newGame();
 
         }
-
 
     }
+
+}
+
 
 
 //newGame();
