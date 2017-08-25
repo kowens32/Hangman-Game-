@@ -106,7 +106,7 @@ newGame();
                 // console.log("how many  " + guessesLeft);
 
             }
-            if (dashesAndCorrectGuesses.indexOf("_") === -1) {
+            if (dashesAndCorrectGuesses.toString() === computerAnimalSplit.toString()) {
                 userwin++;
                 alert("You won!");
                 document.getElementById("userWin").innerHTML = userwin;
