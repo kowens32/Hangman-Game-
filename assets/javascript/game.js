@@ -1,6 +1,13 @@
 
 
 
+
+///target user choice so that it equals computeranimal
+//computeranimal[i]=userchoice
+
+/////https://www.w3schools.com/Jsref/jsref_includes.asp
+
+//no
 //List of possible animals to spell
 var safariAnimals = ["lion", "elephant", "giraffe", "leopard", "rhino", "flamingo", "wildebeest", "buffalo", "hippopotamus", "cheetah",];
 var guessesLeft = 15;
@@ -21,6 +28,8 @@ for (i = 0; i < computerAnimalSplit.length; i++) {
 }
 //user selects a key to get started
 document.onkeyup = function(event) {
+
+    /////////Start the function here??????\\\\\\
     var userChoices = event.key;
 //computer randomly selects an animal
 //     var computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
