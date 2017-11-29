@@ -14,6 +14,7 @@ var incorrectLetters = [];
 function newGame() {
     /////Assign null value to all variables
     computerAnimal = safariAnimals[Math.floor(Math.random() * safariAnimals.length)];
+    console.log('!!!!' + computerAnimal);
     guessesLeft = 15;
     incorrectLetters = [];
     correctLetter = false;
@@ -45,6 +46,7 @@ document.onkeyup = function (event) {
             dashesAndCorrectGuesses[i] = userChoices;
             //if user has selected correct choice, push letter to correct position in array
             document.getElementById("currentWord").innerHTML = dashesAndCorrectGuesses.join(" ");
+            console.log('??????' + dashesAndCorrectGuesses.join(" "));
         }
     }
 
